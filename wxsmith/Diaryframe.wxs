@@ -41,6 +41,13 @@
 								<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 									<size>738,319</size>
 									<object class="wxRichTextCtrl" name="ID_TypedRTCtrl" variable="TypedRTCtrl" member="yes">
+										<font>
+											<size>10</size>
+											<style>normal</style>
+											<weight>normal</weight>
+											<underlined>0</underlined>
+											<face>Monaco</face>
+										</font>
 										<pos>0,0</pos>
 										<size>730,433</size>
 										<handler function="OnTypedRTCtrlText" entry="EVT_TEXT" />
@@ -67,13 +74,16 @@
 						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<option>1</option>
-						<size>580,20</size>
+						<size>546,20</size>
 					</object>
-					<object class="spacer">
+					<object class="sizeritem">
+						<object class="wxFontPickerCtrl" name="ID_DiaryFPCtrl" variable="DiaryFPCtrl" member="yes">
+							<size>110,27</size>
+							<handler function="OnDiaryFPCtrlFontChanged" entry="EVT_FONTPICKER_CHANGED" />
+						</object>
 						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 						<border>5</border>
 						<option>1</option>
-						<size>29,20</size>
 					</object>
 					<object class="sizeritem">
 						<object class="wxButton" name="ID_SaveButton" variable="SaveButton" member="yes">

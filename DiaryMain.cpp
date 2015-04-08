@@ -17,6 +17,7 @@ using namespace std;
 //(*InternalHeaders(DiaryFrame)
 #include <wx/string.h>
 #include <wx/intl.h>
+#include <wx/font.h>
 //*)
 
 //helper functions
@@ -50,6 +51,7 @@ const long DiaryFrame::ID_TREECTRL1 = wxNewId();
 const long DiaryFrame::ID_TypedRTCtrl = wxNewId();
 const long DiaryFrame::ID_PANEL1 = wxNewId();
 const long DiaryFrame::ID_NOTEBOOK1 = wxNewId();
+const long DiaryFrame::ID_DiaryFPCtrl = wxNewId();
 const long DiaryFrame::ID_SaveButton = wxNewId();
 const long DiaryFrame::idMenuQuit = wxNewId();
 const long DiaryFrame::idMenuAbout = wxNewId();
@@ -86,12 +88,20 @@ DiaryFrame::DiaryFrame(wxWindow* parent,wxWindowID id)
     TypedRTCtrl = new wxRichTextCtrl(Panel1, ID_TypedRTCtrl, wxEmptyString, wxPoint(0,0), wxSize(730,433), wxRE_MULTILINE, wxDefaultValidator, _T("ID_TypedRTCtrl"));
     wxRichTextAttr rchtxtAttr_1;
     rchtxtAttr_1.SetBulletStyle(wxTEXT_ATTR_BULLET_STYLE_ALIGN_LEFT);
+    wxFont Font_1(10,wxDEFAULT,wxFONTSTYLE_NORMAL,wxNORMAL,false,_T("Monaco"),wxFONTENCODING_DEFAULT);
+    rchtxtAttr_1.SetFontFaceName(Font_1.GetFaceName());
+    rchtxtAttr_1.SetFontSize(Font_1.GetPointSize());
+    rchtxtAttr_1.SetFontStyle(Font_1.GetStyle());
+    rchtxtAttr_1.SetFontUnderlined(Font_1.GetUnderlined());
+    rchtxtAttr_1.SetFontWeight(Font_1.GetWeight());
+    TypedRTCtrl->SetBasicStyle(rchtxtAttr_1);
     Notebook1->AddPage(Panel1, _("DiaryOne"), false);
     StaticBoxSizer2->Add(Notebook1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     GridBagSizer1->Add(StaticBoxSizer2, wxGBPosition(0, 1), wxDefaultSpan, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     FlexGridSizer1 = new wxFlexGridSizer(0, 3, 0, 0);
-    FlexGridSizer1->Add(580,20,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    FlexGridSizer1->Add(29,20,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(546,20,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    DiaryFPCtrl = new wxFontPickerCtrl(this, ID_DiaryFPCtrl, wxNullFont, wxDefaultPosition, wxSize(110,27), wxFNTP_FONTDESC_AS_LABEL|wxFNTP_USEFONT_FOR_LABEL, wxDefaultValidator, _T("ID_DiaryFPCtrl"));
+    FlexGridSizer1->Add(DiaryFPCtrl, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SaveButton = new wxButton(this, ID_SaveButton, _("Save"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_SaveButton"));
     FlexGridSizer1->Add(SaveButton, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     GridBagSizer1->Add(FlexGridSizer1, wxGBPosition(1, 1), wxDefaultSpan, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -116,6 +126,7 @@ DiaryFrame::DiaryFrame(wxWindow* parent,wxWindowID id)
     GridBagSizer1->SetSizeHints(this);
 
     Connect(ID_TypedRTCtrl,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&DiaryFrame::OnTypedRTCtrlText);
+    Connect(ID_DiaryFPCtrl,wxEVT_COMMAND_FONTPICKER_CHANGED,(wxObjectEventFunction)&DiaryFrame::OnDiaryFPCtrlFontChanged);
     Connect(ID_SaveButton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&DiaryFrame::OnSaveButtonClick);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&DiaryFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&DiaryFrame::OnAbout);
@@ -163,4 +174,10 @@ void DiaryFrame::OnSaveButtonClick(wxCommandEvent& event)
     File<<Typed;
     File.close();
     UnsavedChanges = false;
+}
+
+void DiaryFrame::OnDiaryFPCtrlFontChanged(wxFontPickerEvent& event)
+{
+    wxFont CurrentFont = DiaryFPCtrl->GetSelectedFont();
+    TypedRTCtrl->SetFont(CurrentFont);
 }
