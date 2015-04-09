@@ -1,1 +1,8 @@
-I am a good thing to type things here and wer are going to  make things and wer are a good time a people and time always makes us a good time to look for.
+#include<iostream>
+
+using namespace std;
+
+int main() {
+	cout<<"This is a fucking test "<<endl;
+	return 0;
+}

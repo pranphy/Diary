@@ -346,7 +346,8 @@
 
 1408038676 /usr/include/wx-2.8/wx/gtk/app.h
 
-1428497574 /home/pranphy/Google Drive/Programming/CandC++/Projects/GraphicsProjects/WxGraphics/Diary/DiaryMain.h
+1428575754 /home/pranphy/Google Drive/Programming/CandC++/Projects/GraphicsProjects/WxGraphics/Diary/DiaryMain.h
+	<wx/fontpicker.h>
 	<wx/sizer.h>
 	<wx/notebook.h>
 	<wx/button.h>
@@ -1007,12 +1008,13 @@
 	"wx/scrolwin.h"
 	"wx/pen.h"
 
-1428497725 source:/home/pranphy/Google Drive/Programming/CandC++/Projects/GraphicsProjects/WxGraphics/Diary/DiaryMain.cpp
+1428575965 source:/home/pranphy/Google Drive/Programming/CandC++/Projects/GraphicsProjects/WxGraphics/Diary/DiaryMain.cpp
 	"DiaryMain.h"
 	<wx/msgdlg.h>
 	<fstream>
 	<wx/string.h>
 	<wx/intl.h>
+	<wx/font.h>
 
 1408038676 /usr/include/wx-2.8/wx/msgdlg.h
 	"wx/defs.h"
@@ -1070,4 +1072,33 @@
 
 1408038676 /usr/include/wx-2.8/wx/gbsizer.h
 	"wx/sizer.h"
+
+1408038676 /usr/include/wx-2.8/wx/fontpicker.h
+	"wx/defs.h"
+	"wx/pickerbase.h"
+	"wx/gtk/fontpicker.h"
+	"wx/generic/fontpickerg.h"
+
+1408038676 /usr/include/wx-2.8/wx/pickerbase.h
+	"wx/control.h"
+	"wx/sizer.h"
+	"wx/containr.h"
+
+1408038677 /usr/include/wx-2.8/wx/gtk/fontpicker.h
+	"wx/generic/fontpickerg.h"
+
+1408038676 /usr/include/wx-2.8/wx/generic/fontpickerg.h
+	"wx/button.h"
+	"wx/cmndata.h"
+
+1408038676 /usr/include/wx-2.8/wx/cmndata.h
+	"wx/window.h"
+	"wx/font.h"
+	"wx/encinfo.h"
+	"wx/colour.h"
+	"wx/gdicmn.h"
+	"wx/stream.h"
+
+1408038676 /usr/include/wx-2.8/wx/encinfo.h
+	"wx/string.h"
 

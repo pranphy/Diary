@@ -43,7 +43,6 @@ class DiaryFrame: public wxFrame
         void OnTypedRTCtrlText2(wxCommandEvent& event);
         void OnTypedRTCtrlText3(wxCommandEvent& event);
         void OnSaveButtonClick(wxCommandEvent& event);
-        void OnDiaryFPCtrlFontChanged(wxFontPickerEvent& event);
         //*)
 
         //(*Identifiers(DiaryFrame)
@@ -51,9 +50,9 @@ class DiaryFrame: public wxFrame
         static const long ID_TypedRTCtrl;
         static const long ID_PANEL1;
         static const long ID_NOTEBOOK1;
-        static const long ID_DiaryFPCtrl;
+        static const long ID_FONTPICKERCTRL1;
         static const long ID_SaveButton;
-        static const long idMenuQuit;
+        static const long ID_MENUITEM1;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
@@ -62,9 +61,9 @@ class DiaryFrame: public wxFrame
         wxPanel* Panel1;
         wxStatusBar* StatusBar1;
         wxButton* SaveButton;
-        wxFontPickerCtrl* DiaryFPCtrl;
         wxTreeCtrl* TreeCtrl1;
         wxNotebook* Notebook1;
+        wxFontPickerCtrl* FontPickerCtrl1;
         wxRichTextCtrl* TypedRTCtrl;
         //*)
 

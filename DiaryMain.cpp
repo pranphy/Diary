@@ -51,9 +51,9 @@ const long DiaryFrame::ID_TREECTRL1 = wxNewId();
 const long DiaryFrame::ID_TypedRTCtrl = wxNewId();
 const long DiaryFrame::ID_PANEL1 = wxNewId();
 const long DiaryFrame::ID_NOTEBOOK1 = wxNewId();
-const long DiaryFrame::ID_DiaryFPCtrl = wxNewId();
+const long DiaryFrame::ID_FONTPICKERCTRL1 = wxNewId();
 const long DiaryFrame::ID_SaveButton = wxNewId();
-const long DiaryFrame::idMenuQuit = wxNewId();
+const long DiaryFrame::ID_MENUITEM1 = wxNewId();
 const long DiaryFrame::idMenuAbout = wxNewId();
 const long DiaryFrame::ID_STATUSBAR1 = wxNewId();
 //*)
@@ -69,23 +69,30 @@ DiaryFrame::DiaryFrame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem2;
     wxStaticBoxSizer* StaticBoxSizer2;
     wxMenuItem* MenuItem1;
-    wxFlexGridSizer* FlexGridSizer1;
+    wxBoxSizer* BoxSizer3;
     wxMenu* Menu1;
+    wxBoxSizer* BoxSizer2;
+    wxBoxSizer* BoxSizer1;
     wxMenuBar* MenuBar1;
     wxGridBagSizer* GridBagSizer1;
     wxMenu* Menu2;
     wxStaticBoxSizer* StaticBoxSizer1;
 
     Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
+    StaticBoxSizer1 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Diary Structure"));
+    TreeCtrl1 = new wxTreeCtrl(this, ID_TREECTRL1, wxDefaultPosition, wxDefaultSize, wxTR_DEFAULT_STYLE, wxDefaultValidator, _T("ID_TREECTRL1"));
+    StaticBoxSizer1->Add(TreeCtrl1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(StaticBoxSizer1, 2, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer2 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Daily Diary"));
     GridBagSizer1 = new wxGridBagSizer(0, 0);
-    StaticBoxSizer1 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Label"));
-    TreeCtrl1 = new wxTreeCtrl(this, ID_TREECTRL1, wxDefaultPosition, wxSize(173,517), wxTR_DEFAULT_STYLE, wxDefaultValidator, _T("ID_TREECTRL1"));
-    StaticBoxSizer1->Add(TreeCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    GridBagSizer1->Add(StaticBoxSizer1, wxGBPosition(0, 0), wxGBSpan(2, 1), wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticBoxSizer2 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Label"));
-    Notebook1 = new wxNotebook(this, ID_NOTEBOOK1, wxDefaultPosition, wxSize(736,462), 0, _T("ID_NOTEBOOK1"));
-    Panel1 = new wxPanel(Notebook1, ID_PANEL1, wxDefaultPosition, wxSize(738,319), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
-    TypedRTCtrl = new wxRichTextCtrl(Panel1, ID_TypedRTCtrl, wxEmptyString, wxPoint(0,0), wxSize(730,433), wxRE_MULTILINE, wxDefaultValidator, _T("ID_TypedRTCtrl"));
+    GridBagSizer1->AddGrowableCol(0);
+    GridBagSizer1->AddGrowableCol(1);
+    GridBagSizer1->AddGrowableRow(0);
+    Notebook1 = new wxNotebook(this, ID_NOTEBOOK1, wxDefaultPosition, wxSize(128,140), 0, _T("ID_NOTEBOOK1"));
+    Panel1 = new wxPanel(Notebook1, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
+    BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
+    TypedRTCtrl = new wxRichTextCtrl(Panel1, ID_TypedRTCtrl, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxRE_MULTILINE, wxDefaultValidator, _T("ID_TypedRTCtrl"));
     wxRichTextAttr rchtxtAttr_1;
     rchtxtAttr_1.SetBulletStyle(wxTEXT_ATTR_BULLET_STYLE_ALIGN_LEFT);
     wxFont Font_1(10,wxDEFAULT,wxFONTSTYLE_NORMAL,wxNORMAL,false,_T("Monaco"),wxFONTENCODING_DEFAULT);
@@ -95,20 +102,24 @@ DiaryFrame::DiaryFrame(wxWindow* parent,wxWindowID id)
     rchtxtAttr_1.SetFontUnderlined(Font_1.GetUnderlined());
     rchtxtAttr_1.SetFontWeight(Font_1.GetWeight());
     TypedRTCtrl->SetBasicStyle(rchtxtAttr_1);
-    Notebook1->AddPage(Panel1, _("DiaryOne"), false);
-    StaticBoxSizer2->Add(Notebook1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    GridBagSizer1->Add(StaticBoxSizer2, wxGBPosition(0, 1), wxDefaultSpan, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    FlexGridSizer1 = new wxFlexGridSizer(0, 3, 0, 0);
-    FlexGridSizer1->Add(546,20,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    DiaryFPCtrl = new wxFontPickerCtrl(this, ID_DiaryFPCtrl, wxNullFont, wxDefaultPosition, wxSize(110,27), wxFNTP_FONTDESC_AS_LABEL|wxFNTP_USEFONT_FOR_LABEL, wxDefaultValidator, _T("ID_DiaryFPCtrl"));
-    FlexGridSizer1->Add(DiaryFPCtrl, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer2->Add(TypedRTCtrl, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Panel1->SetSizer(BoxSizer2);
+    BoxSizer2->Fit(Panel1);
+    BoxSizer2->SetSizeHints(Panel1);
+    Notebook1->AddPage(Panel1, _("PageOne"), false);
+    GridBagSizer1->Add(Notebook1, wxGBPosition(0, 0), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
+    FontPickerCtrl1 = new wxFontPickerCtrl(this, ID_FONTPICKERCTRL1, wxNullFont, wxDefaultPosition, wxDefaultSize, wxFNTP_FONTDESC_AS_LABEL|wxFNTP_USEFONT_FOR_LABEL, wxDefaultValidator, _T("ID_FONTPICKERCTRL1"));
+    BoxSizer3->Add(FontPickerCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SaveButton = new wxButton(this, ID_SaveButton, _("Save"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_SaveButton"));
-    FlexGridSizer1->Add(SaveButton, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    GridBagSizer1->Add(FlexGridSizer1, wxGBPosition(1, 1), wxDefaultSpan, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    SetSizer(GridBagSizer1);
+    BoxSizer3->Add(SaveButton, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    GridBagSizer1->Add(BoxSizer3, wxGBPosition(1, 0), wxDefaultSpan, wxBOTTOM|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
+    StaticBoxSizer2->Add(GridBagSizer1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(StaticBoxSizer2, 8, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 1);
+    SetSizer(BoxSizer1);
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
-    MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
+    MenuItem1 = new wxMenuItem(Menu1, ID_MENUITEM1, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
     MenuBar1->Append(Menu1, _("&File"));
     Menu2 = new wxMenu();
@@ -122,13 +133,13 @@ DiaryFrame::DiaryFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetFieldsCount(1,__wxStatusBarWidths_1);
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
-    GridBagSizer1->Fit(this);
-    GridBagSizer1->SetSizeHints(this);
+    BoxSizer1->Fit(this);
+    BoxSizer1->SetSizeHints(this);
+    Center();
 
     Connect(ID_TypedRTCtrl,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&DiaryFrame::OnTypedRTCtrlText);
-    Connect(ID_DiaryFPCtrl,wxEVT_COMMAND_FONTPICKER_CHANGED,(wxObjectEventFunction)&DiaryFrame::OnDiaryFPCtrlFontChanged);
     Connect(ID_SaveButton,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&DiaryFrame::OnSaveButtonClick);
-    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&DiaryFrame::OnQuit);
+    Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&DiaryFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&DiaryFrame::OnAbout);
     //*)
     UnsavedChanges = false;
@@ -176,8 +187,4 @@ void DiaryFrame::OnSaveButtonClick(wxCommandEvent& event)
     UnsavedChanges = false;
 }
 
-void DiaryFrame::OnDiaryFPCtrlFontChanged(wxFontPickerEvent& event)
-{
-    wxFont CurrentFont = DiaryFPCtrl->GetSelectedFont();
-    TypedRTCtrl->SetFont(CurrentFont);
-}
+
