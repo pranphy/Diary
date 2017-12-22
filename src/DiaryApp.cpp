@@ -16,18 +16,15 @@
 
 IMPLEMENT_APP(DiaryApp);
 
-bool DiaryApp::OnInit()
-{
-    //(*AppInitialize
-    bool wxsOK = true;
-    wxInitAllImageHandlers();
-    if ( wxsOK )
-    {
-    	DiaryFrame* Frame = new DiaryFrame(0);
-    	Frame->Show();
-    	SetTopWindow(Frame);
-    }
-    //*)
-    return wxsOK;
-
+bool DiaryApp::OnInit() {
+	//(*AppInitialize
+	bool wxsOK = true;
+	wxInitAllImageHandlers();
+	if ( wxsOK ) {
+		DiaryFrame* Frame = new DiaryFrame(0);
+		Frame->Show();
+		SetTopWindow(Frame);
+	}
+	//*)
+	return wxsOK;
 }

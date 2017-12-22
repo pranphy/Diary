@@ -1,115 +1,89 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="DiaryFrame">
+		<title>Diary 15.04.0.1</title>
 		<centered>1</centered>
 		<id_arg>0</id_arg>
-		<object class="wxBoxSizer" variable="BoxSizer1" member="no">
-			<object class="sizeritem">
-				<object class="wxStaticBoxSizer" variable="StaticBoxSizer1" member="no">
-					<label>Diary Structure</label>
-					<object class="sizeritem">
-						<object class="wxTreeCtrl" name="ID_TREECTRL1" variable="TreeCtrl1" member="yes">
-							<image_list>&lt;none&gt;</image_list>
-							<tree_items>
-								<item>TreeCtrl1</item>
-								<item>&lt;none&gt;</item>
-							</tree_items>
-							<items_text>
-								<item2>TreeCtrl1</item2>
-								<item2>&lt;none&gt;</item2>
-							</items_text>
+		<object class="wxAuiManager" variable="AuiManager1" member="yes">
+			<object class="AuiManagerItem">
+				<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+					<minsize>150,0</minsize>
+					<object class="wxStaticBoxSizer" variable="LeftPortionStaticBoxSizer" member="no">
+						<label>Diary Structure</label>
+						<object class="sizeritem">
+							<object class="wxGenericDirCtrl" name="ID_GENERICDIRCTRL1" variable="GenericDirCtrl1" member="yes">
+								<defaultfolder>.</defaultfolder>
+								<filter></filter>
+								<size>93,247</size>
+							</object>
+							<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
 						</object>
-						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>5</border>
-						<option>1</option>
 					</object>
 				</object>
-				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-				<border>5</border>
-				<option>2</option>
+				<name>PaneName</name>
+				<standardpanetype>Default</standardpanetype>
+				<caption>Pane caption</caption>
+				<captionvisible>0</captionvisible>
+				<minimizebutton>0</minimizebutton>
+				<maximizebutton>0</maximizebutton>
+				<pinbutton>0</pinbutton>
+				<closebutton>0</closebutton>
+				<dockdirection>Left</dockdirection>
+				<dockfixed>0</dockfixed>
+				<dockabledirection></dockabledirection>
+				<destroyonclose>0</destroyonclose>
+				<firstadd>0</firstadd>
 			</object>
-			<object class="sizeritem">
-				<object class="wxStaticBoxSizer" variable="StaticBoxSizer2" member="no">
-					<label>Daily Diary</label>
-					<object class="sizeritem">
-						<object class="wxGridBagSizer" variable="GridBagSizer1" member="no">
-							<growablecols>0,1</growablecols>
-							<growablerows>0</growablerows>
-							<object class="sizeritem">
-								<object class="wxNotebook" name="ID_NOTEBOOK1" variable="Notebook1" member="yes">
-									<size>128,140</size>
-									<object class="notebookpage">
-										<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
-											<object class="wxBoxSizer" variable="BoxSizer2" member="no">
-												<object class="sizeritem">
-													<object class="wxRichTextCtrl" name="ID_TypedRTCtrl" variable="TypedRTCtrl" member="yes">
-														<font>
-															<size>10</size>
-															<style>normal</style>
-															<weight>normal</weight>
-															<underlined>0</underlined>
-															<face>Monaco</face>
-														</font>
-														<handler function="OnTypedRTCtrlText" entry="EVT_TEXT" />
-													</object>
-													<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-													<border>5</border>
-													<option>1</option>
-												</object>
-											</object>
-										</object>
-										<label>PageOne</label>
-									</object>
-								</object>
-								<col>0</col>
-								<row>0</row>
-								<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-								<border>5</border>
-								<option>1</option>
-							</object>
-							<object class="sizeritem">
-								<object class="wxBoxSizer" variable="BoxSizer3" member="no">
-									<object class="sizeritem">
-										<object class="wxFontPickerCtrl" name="ID_FONTPICKERCTRL1" variable="FontPickerCtrl1" member="yes" />
-										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-										<border>5</border>
-										<option>1</option>
-									</object>
-									<object class="sizeritem">
-										<object class="wxButton" name="ID_SaveButton" variable="SaveButton" member="yes">
-											<label>Save</label>
-											<handler function="OnSaveButtonClick" entry="EVT_BUTTON" />
-										</object>
-										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-										<border>5</border>
-										<option>1</option>
-									</object>
-								</object>
-								<col>0</col>
-								<row>1</row>
-								<flag>wxBOTTOM|wxRIGHT|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
-								<border>5</border>
-								<option>1</option>
-							</object>
-						</object>
-						<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-						<border>5</border>
-						<option>1</option>
-					</object>
+			<object class="AuiManagerItem">
+				<object class="wxAuiNotebook" name="ID_EditorsAUINBook" variable="EditorsAUINBook" member="yes">
+					<pos>114,213</pos>
 				</object>
-				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-				<border>1</border>
-				<option>8</option>
+				<name>PaneName</name>
+				<caption>Pane caption</caption>
+				<captionvisible>0</captionvisible>
+				<minimizebutton>0</minimizebutton>
+				<maximizebutton>0</maximizebutton>
+				<pinbutton>0</pinbutton>
+				<closebutton>0</closebutton>
+				<row>1</row>
+				<dockdirection>Center</dockdirection>
+				<dockfixed>0</dockfixed>
+				<dockabledirection></dockabledirection>
+				<destroyonclose>0</destroyonclose>
+				<firstadd>0</firstadd>
 			</object>
 		</object>
-		<object class="wxMenuBar" variable="MenuBar1" member="no">
+		<object class="wxMenuBar" variable="MenuBar" member="no">
 			<object class="wxMenu" variable="Menu1" member="no">
 				<label>&amp;File</label>
+				<object class="wxMenuItem" name="ID_SaveMItem" variable="SaveMItem" member="yes">
+					<label>Save</label>
+					<accel>Ctrl+S</accel>
+					<help>Save the current file</help>
+					<handler function="OnSaveMItemSelected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="ID_NewFile" variable="NewFile" member="yes">
+					<label>New File</label>
+					<accel>Ctrl+N</accel>
+					<help>Add new tab</help>
+					<handler function="OnNewTabSelected" entry="EVT_MENU" />
+				</object>
 				<object class="wxMenuItem" name="ID_MENUITEM1" variable="MenuItem1" member="no">
 					<label>Quit</label>
 					<accel>Alt-F4</accel>
 					<help>Quit the application</help>
 					<handler function="OnQuit" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu3" member="yes">
+				<label>&amp;Edit</label>
+				<object class="wxMenuItem" name="ID_ChangeFont" variable="ChangeFont" member="yes">
+					<label>Change Font</label>
+					<accel>Ctrl+F</accel>
+					<help>Select  Font</help>
+					<handler function="OnChangeFontSelected" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu2" member="no">
@@ -127,5 +101,10 @@
 			<widths>-1</widths>
 			<styles>wxSB_NORMAL</styles>
 		</object>
+		<object class="wxFileDialog" variable="FileSelector" member="yes">
+			<message>Select file</message>
+			<style>wxFD_DEFAULT_STYLE|wxFD_SAVE</style>
+		</object>
+		<object class="wxFontDialog" variable="SelectFont" member="yes" />
 	</object>
 </wxsmith>

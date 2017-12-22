@@ -12,10 +12,9 @@
 
 #include <wx/app.h>
 
-class DiaryApp : public wxApp
-{
-    public:
-        virtual bool OnInit();
+class DiaryApp : public wxApp {
+public:
+	virtual bool OnInit();
 };
 
 #endif // DIARYAPP_H

@@ -31,17 +31,23 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="`wx-config --cflags`" />
 			<Add option="-Wall" />
+			<Add option="`wx-config --version=2.8   --cxxflags`" />
+			<Add option="-Iinclude" />
 		</Compiler>
 		<Linker>
-			<Add option="`wx-config --libs`" />
+			<Add option="`wx-config   --version=2.8 --libs`" />
 		</Linker>
-		<Unit filename="DiaryApp.cpp" />
-		<Unit filename="DiaryApp.h" />
-		<Unit filename="DiaryMain.cpp" />
-		<Unit filename="DiaryMain.h" />
+		<Unit filename="include/DiaryApp.h" />
+		<Unit filename="include/DiaryMain.h" />
+		<Unit filename="include/TextEditorPanel.h" />
+		<Unit filename="include/XOREncrypt.h" />
+		<Unit filename="src/DiaryApp.cpp" />
+		<Unit filename="src/DiaryMain.cpp" />
+		<Unit filename="src/TextEditorPanel.cpp" />
+		<Unit filename="src/XOREncrypt.cpp" />
 		<Unit filename="wxsmith/Diaryframe.wxs" />
+		<Unit filename="wxsmith/TextEditorPanel.wxs" />
 		<Extensions>
 			<code_completion />
 			<envvars />
@@ -49,6 +55,7 @@
 				<gui name="wxWidgets" src="DiaryApp.cpp" main="DiaryFrame" init_handlers="necessary" language="CPP" />
 				<resources>
 					<wxFrame wxs="wxsmith/Diaryframe.wxs" src="DiaryMain.cpp" hdr="DiaryMain.h" fwddecl="0" i18n="1" name="DiaryFrame" language="CPP" />
+					<wxPanel wxs="wxsmith/TextEditorPanel.wxs" src="TextEditorPanel.cpp" hdr="TextEditorPanel.h" fwddecl="0" i18n="1" name="TextEditorPanel" language="CPP" />
 				</resources>
 			</wxsmith>
 			<lib_finder disable_auto="1" />
