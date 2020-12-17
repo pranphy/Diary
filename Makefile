@@ -1,7 +1,7 @@
 #CC = /usr/bin/i586-mingw32msvc-g++
 
 
-WXVERSION = 2.8
+WXVERSION = 3.1
 WXFLAGS  = `wx-config --version=$(WXVERSION) --cxxflags`
 WXLINKER = `wx-config --version=$(WXVERSION) --libs all --gl-libs`
 
@@ -22,7 +22,7 @@ SOURCE =  $(shell find ./src -name '*.cpp')
 
 OBJECTS = $(shell echo $(SOURCE) | sed s/$(SRCDIR)/$(OBJDIR)/g | sed s/.cpp/.o/g)
 
-EXECUTEABLE = $(BINDIR)/Debug/GraphSearch
+EXECUTEABLE = $(BINDIR)/Debug/Diary
 
 
 $(EXECUTEABLE):$(OBJECTS)
